@@ -40,7 +40,7 @@ def gerenciar_equipamentos (acao,id,n,s):
     
     elif acao == '-':
         q = 'DELETE FROM equipamento WHERE idE = %s;'
-        cursor.execute(q,(id))
+        cursor.execute(q,(id,))
         bd.commit()
         return 'Atualização feita com sucesso.'
     
@@ -54,9 +54,21 @@ def gerenciar_equipamentos (acao,id,n,s):
     
 def gerenciar_marcas (n):
     q = 'INSERT INTO marca (nome) VALUES (%s);'
-    cursor.execute(q,((n,)))
+    cursor.execute(q,(n,))
     bd.commit()
-    print('BUCETOIDES')
+
+def gerenciar_categorias (n):
+    q = 'INSERT INTO categoria (nome) VALUES (%s);'
+    cursor.execute(q,(n,))
+    bd.commit()
+
+def gerenciar_endereco (r,b,c,s):
+    q = 'INSERT INTO endereco (rua,bairro,cidade,sigla_estado) VALUES (%s,%s,%s,%s);'
+    cursor.execute(q,(r,b,c,s))
+    bd.commit()
+
+
+
 
 
     
